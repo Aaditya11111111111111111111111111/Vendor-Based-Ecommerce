@@ -77,7 +77,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-24 sm:py-32">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-6 sm:py-10">
 
         <p className="text-pink-400 font-semibold mb-3 text-sm sm:text-base uppercase tracking-widest">
           New Collection 2026
