@@ -6,7 +6,7 @@ const NewArrivals = () => {
 
   return (
     <section className="py-16 sm:py-20 lg:py-28">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
+      <div className="max-w-350 mx-auto px-4 sm:px-6 lg:px-12">
 
         <div className="flex flex-col items-center text-center mb-10 sm:mb-14 gap-4">
           <div>

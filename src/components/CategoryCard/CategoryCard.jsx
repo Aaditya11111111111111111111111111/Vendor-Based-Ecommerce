@@ -1,23 +1,26 @@
-const CategoryCard = ({ image, title }) => {
+const CategoryCard = ({ image, title, subtitle, tag }) => {
   return (
-    <div className="group relative overflow-hidden rounded-2xl sm:rounded-3xl
-                    h-64 sm:h-80 lg:h-96 cursor-pointer">
+    <div className="group cursor-pointer overflow-hidden bg-white border border-gray-100 hover:shadow-lg transition-shadow duration-300">
 
-      <img
-        src={image}
-        alt={title}
-        className="h-full w-full object-cover transition-all duration-700 group-hover:scale-110"
-      />
+      <div className="relative overflow-hidden h-[30rem] sm:h-80 lg:h-96">
+        <img
+          src={image}
+          alt={title}
+          className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+        />
+        {tag && (
+          <div className="absolute top-3 left-3 bg-black text-white text-[9px] font-bold uppercase tracking-widest px-2.5 py-1">
+            {tag}
+          </div>
+        )}
+      </div>
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-
-      <div className="absolute bottom-5 sm:bottom-8 left-5 sm:left-8">
-        <h3 className="text-white text-xl sm:text-2xl lg:text-3xl font-bold">
+      <div className="px-4 py-3.5 bg-white">
+        <h3 className="text-base sm:text-lg font-semibold text-gray-900 leading-snug">
           {title}
         </h3>
-        <p className="text-white/80 mt-1 text-sm sm:text-base">
-          Explore Collection
+        <p className="mt-1 text-xs text-gray-400 uppercase tracking-wider font-medium">
+          {subtitle}
         </p>
       </div>
 

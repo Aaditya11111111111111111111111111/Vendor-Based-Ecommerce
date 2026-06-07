@@ -1,14 +1,16 @@
 import { Routes, Route } from "react-router-dom";
-
-import Home from "../pages/Home/Home"
+import MainLayout from "../layouts/MainLayout";
+import Home from "../pages/Home/Home";
 
 const AppRoutes = () => {
-    return(
-        <Routes>
-            <Route path='/' element={<Home />} />
-        </Routes>
-    );
-
+  return (
+    <Routes>
+      <Route element={<MainLayout />}>
+        <Route path="/" element={<Home />} />
+        {/* Add more pages here — they'll all inherit Navbar + Footer automatically */}
+      </Route>
+    </Routes>
+  );
 };
 
 export default AppRoutes;
