@@ -57,7 +57,7 @@ const Hero = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[90vh] flex items-center overflow-hidden cursor-pointer"
+      className="relative min-h-screen flex items-center overflow-hidden cursor-pointer"
       onClick={handleSectionClick}
     >
 
