@@ -1,7 +1,7 @@
-import men from "../../assets/images/categories/17.png"
-import women from "../../assets/images/categories/15.png"
+import men from "../../assets/images/categories/men.png"
+import women from "../../assets/images/categories/7.png"
 import kids from "../../assets/images/categories/16.png"
-import saree from "../../assets/images/categories/2.jpg"
+import saree from "../../assets/images/categories/4.png"
 
 export const categories = [
     {
