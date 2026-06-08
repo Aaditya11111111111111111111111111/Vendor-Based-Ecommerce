@@ -21,7 +21,11 @@ const Hero = () => {
 
 
 
-      {/* Navbar sits at the top inside the hero */}
+      {/* Mobile-only overlay — darkens left/center for text readability */}
+      <div
+        className="lg:hidden absolute inset-0"
+        style={{ background: "linear-gradient(to right, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.4) 60%, transparent 100%)" }}
+      />
       <div className="relative z-20">
         <Navbar />
       </div>
