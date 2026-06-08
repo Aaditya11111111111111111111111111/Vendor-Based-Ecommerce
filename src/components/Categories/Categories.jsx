@@ -31,7 +31,7 @@ const Categories = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative pt-25 pb-10 lg:pt-25 lg:pb-14 overflow-hidden"
+      className="relative pt-8 pb-10 lg:pt-12 lg:pb-14 overflow-hidden"
     >
       {showAnimation && (
         <Suspense fallback={<div className="pointer-events-none absolute inset-0" />}>
