@@ -2,33 +2,47 @@ import { products } from "../../assets/data/products";
 import ProductCard from "../ProductCard/ProductCard";
 
 const NewArrivals = () => {
-  const arrivals = products.filter((p) => p.newArrival);
+
+  const arrivals = products.filter(
+    (product) => product.newArrival
+  );
 
   return (
-    <section className="py-16 sm:py-20 lg:py-28">
-      <div className="max-w-350 mx-auto px-4 sm:px-6 lg:px-12">
+    <section className="py-28">
 
-        <div className="flex flex-col items-center text-center mb-10 sm:mb-14 gap-4">
+      <div className="max-w-7xl mx-auto px-4">
+
+        <div className="flex flex-col items-center text-center mb-14 gap-6">
+
           <div>
-            <p className="text-pink-600 font-semibold uppercase tracking-wider text-sm sm:text-base">
+            <p className="text-pink-600 font-semibold uppercase tracking-wider">
               Latest Collection
             </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-2">
+
+            <h2 className="text-5xl font-bold mt-2">
               New Arrivals
             </h2>
           </div>
-          <button className="text-pink-600 font-semibold hover:underline text-sm sm:text-base">
+
+          <button className="text-pink-600 font-semibold hover:underline">
             View All
           </button>
+
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6 lg:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+
           {arrivals.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard
+              key={product.id}
+              product={product}
+            />
           ))}
+
         </div>
 
       </div>
+
     </section>
   );
 };
