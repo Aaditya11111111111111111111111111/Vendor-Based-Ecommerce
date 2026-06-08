@@ -1,81 +1,96 @@
 import hero from "../../assets/images/banners/hero.png";
-import { BadgeCheck, Shirt, ShieldCheck, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-const features = [
-  { icon: BadgeCheck, title: "Premium Quality", desc: "Finest materials" },
-  { icon: Shirt,      title: "Trendy Styles",   desc: "Latest collections" },
-  { icon: ShieldCheck,title: "Easy Returns",    desc: "Hassle free" },
+const stats = [
+  { value: "500+", label: "Products" },
+  { value: "50+",  label: "Vendors" },
+  { value: "10K+", label: "Customers" },
 ];
 
 const Hero = () => {
   return (
-    <section className="flex items-center relative overflow-hidden bg-white">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8
-                      py-10 sm:py-14 lg:py-20
-                      grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+    <section className="relative w-full overflow-hidden" style={{ height: "calc(100vh - 64px)" }}>
 
-        {/* Left Content */}
-        <div className="text-center lg:text-left order-2 lg:order-1">
+      {/* Background image */}
+      <img
+        src={hero}
+        alt="Hero"
+        className="absolute inset-0 w-full h-full object-cover object-center"
+      />
 
-          <p className="text-pink-600 font-semibold mb-3 text-sm sm:text-base lg:text-lg">
-            New Collection 2026
-          </p>
+      {/* Overlay — solid black left, fades to transparent right */}
+      <div className="absolute inset-0"
+        style={{ background: "linear-gradient(to right, #0a0a0a 38%, rgba(10,10,10,0.7) 60%, transparent 85%)" }}
+      />
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl
-                         font-bold leading-tight tracking-tighter">
-            Discover Fashion
-            <span className="block text-pink-600 mt-1 lg:mt-3">
-              That Defines You
+      {/* Content — left column only */}
+      <div className="relative z-10 h-full flex items-center">
+        <div className="px-8 sm:px-12 lg:px-16 max-w-[560px]">
+
+          {/* Eyebrow */}
+          <div className="flex items-center gap-3 mb-7">
+            <span className="w-7 h-px bg-pink-500 block" />
+            <span className="text-pink-500 text-xs font-semibold uppercase tracking-[0.35em]">
+              New Collection 2026
+            </span>
+          </div>
+
+          {/* Headline */}
+          <h1 className="text-white font-bold leading-[1.05] tracking-tight
+                         text-5xl sm:text-6xl lg:text-[4.5rem]">
+            Fashion That
+            <span className="block text-pink-500 italic font-light"
+              style={{ fontStyle: "italic" }}>
+              Defines Your Style
             </span>
           </h1>
 
-          <p className="mt-5 text-base sm:text-lg text-gray-600 max-w-md mx-auto lg:mx-0">
-            Premium clothing designed for comfort, confidence and everyday elegance.
+          {/* Pink underline accent */}
+          <div className="w-10 h-0.5 bg-pink-500 mt-6 mb-6" />
+
+          {/* Description */}
+          <p className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-sm">
+            Curated collections from premium brands and independent vendors.
+            Discover timeless fashion crafted for confidence, comfort, and
+            everyday elegance.
           </p>
 
-          {/* Features */}
-          <div className="flex flex-wrap justify-center lg:justify-start
-                          gap-x-6 gap-y-4 mt-8">
-            {features.map((item) => {
-              const Icon = item.icon;
-              return (
-                <div key={item.title} className="flex items-center gap-3">
-                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-pink-50
-                                  flex items-center justify-center shrink-0">
-                    <Icon className="text-pink-600" size={20} />
-                  </div>
-                  <div className="text-left">
-                    <h4 className="font-semibold text-sm sm:text-base">{item.title}</h4>
-                    <p className="text-xs sm:text-sm text-gray-500">{item.desc}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* CTA */}
-          <div className="flex justify-center lg:justify-start mt-8">
-            <button className="px-7 sm:px-9 py-3 sm:py-4 rounded-2xl bg-pink-600
-                               hover:bg-pink-700 text-white font-medium
-                               flex items-center gap-2 shadow-lg shadow-pink-200
-                               transition-all text-sm sm:text-base">
-              Shop Now
-              <ArrowRight size={18} />
+          {/* CTAs */}
+          <div className="flex flex-wrap items-center gap-3 mt-8">
+            <button className="flex items-center gap-2 bg-pink-600 hover:bg-pink-700
+                               text-white font-semibold text-sm px-7 py-3.5
+                               transition-all shadow-lg shadow-pink-900/30">
+              Shop Collection
+              <ArrowRight size={15} />
+            </button>
+            <button className="text-white text-sm font-medium px-7 py-3.5
+                               border border-white/40 hover:bg-white/10 transition-all">
+              Explore Vendors
             </button>
           </div>
-        </div>
 
-        {/* Right Image — hidden on mobile */}
-        <div className="hidden lg:block lg:order-2 lg:-mr-12">
-          <img
-            src={hero}
-            alt="Fashion Model"
-            className="w-full max-h-[45vh] sm:max-h-[55vh] lg:max-h-none
-                       object-cover rounded-3xl shadow-2xl"
-          />
-        </div>
+          {/* Stats with dividers */}
+          <div className="flex items-center gap-0 mt-12">
+            {stats.map((stat, i) => (
+              <div key={stat.label} className="flex items-center">
+                <div className="pr-8">
+                  <p className="text-white text-3xl sm:text-4xl font-bold leading-none">
+                    {stat.value}
+                  </p>
+                  <p className="text-gray-400 text-[10px] uppercase tracking-[0.2em] mt-1.5">
+                    {stat.label}
+                  </p>
+                </div>
+                {i < stats.length - 1 && (
+                  <div className="w-px h-10 bg-white/20 mr-8" />
+                )}
+              </div>
+            ))}
+          </div>
 
+        </div>
       </div>
+
     </section>
   );
 };
