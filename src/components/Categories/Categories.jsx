@@ -49,10 +49,10 @@ const Categories = () => {
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8"
         >
           <div>
-            <p className="text-pink-600 uppercase tracking-[0.2em] text-xs font-semibold mb-2">
+            <p className="text-pink-600 uppercase tracking-[0.2em] text-2xl md:text-3xl font-bold mb-2">
               Collections
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">
+            <h2 className="text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-gray-400">
               Shop By Category
             </h2>
           </div>
