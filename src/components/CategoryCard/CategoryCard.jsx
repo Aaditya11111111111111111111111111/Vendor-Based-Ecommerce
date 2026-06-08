@@ -1,10 +1,12 @@
+import { ArrowRight } from "lucide-react";
+
 const CategoryCard = ({ image, title }) => {
   return (
-    <div className="group cursor-pointer border border-gray-300 hover:border-pink-400
-                    hover:shadow-md transition-all duration-300 bg-white">
+    <div className="group cursor-pointer overflow-hidden rounded-t-xl shadow-sm
+                    hover:shadow-md transition-shadow duration-300 bg-white">
 
-      {/* Image — no overlay, no gradient */}
-      <div className="overflow-hidden h-48 sm:h-72 lg:h-96">
+      {/* Image — tall portrait */}
+      <div className="overflow-hidden h-52 sm:h-72 lg:h-[420px]">
         <img
           src={image}
           alt={title}
@@ -13,14 +15,15 @@ const CategoryCard = ({ image, title }) => {
         />
       </div>
 
-      {/* Text below image — separated by border */}
-      <div className="border-t border-gray-300 px-4 py-3">
-        <h3 className="text-gray-900 text-base sm:text-lg font-semibold">
+      {/* Footer strip — white, category name left, arrow right */}
+      <div className="flex items-center justify-between px-4 py-3.5 bg-white">
+        <span className="text-gray-900 text-base sm:text-lg font-medium">
           {title}
-        </h3>
-        <p className="text-xs sm:text-sm text-gray-400 mt-0.5">
-          Explore Collection
-        </p>
+        </span>
+        <ArrowRight
+          size={18}
+          className="text-pink-500 transition-transform duration-300 group-hover:translate-x-1"
+        />
       </div>
 
     </div>
