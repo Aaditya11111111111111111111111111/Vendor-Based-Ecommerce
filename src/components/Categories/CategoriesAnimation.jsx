@@ -13,7 +13,7 @@ const CategoriesAnimation = () => {
   }, []);
 
   return (
-    <div className="pointer-events-none absolute inset-x-0 top-0 h-72 -z-10 overflow-hidden bg-linear-to-b from-pink-100/30 to-transparent" />
+    <div className="pointer-events-none absolute inset-x-0 top-0 h-72 -z-10 overflow-hidden" />
   );
 };
 

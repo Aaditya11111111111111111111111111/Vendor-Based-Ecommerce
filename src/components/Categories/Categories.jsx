@@ -49,15 +49,15 @@ const Categories = () => {
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8"
         >
           <div>
-            <p className="text-pink-600 uppercase tracking-[0.2em] text-2xl md:text-3xl font-bold mb-2">
+            <p className="text-pink-400 uppercase tracking-[0.2em] text-2xl md:text-3xl font-bold mb-2">
               Collections
             </p>
-            <h2 className="text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-gray-400">
+            <h2 className="text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-white/50">
               Shop By Category
             </h2>
           </div>
 
-          <button className="group flex items-center gap-2 text-gray-600 hover:text-pink-600 transition-colors font-medium text-sm">
+          <button className="group flex items-center gap-2 text-white/70 hover:text-pink-400 transition-colors font-medium text-sm">
             View All Products
             <ArrowRight
               size={15}
