@@ -1,6 +1,6 @@
 const CategoryCard = ({ image, title, subtitle, tag }) => {
   return (
-    <div className="group cursor-pointer overflow-hidden bg-white border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+    <div className="group cursor-pointer overflow-hidden bg-white border border-gray-300 hover:shadow-lg transition-shadow duration-300">
 
       <div className="relative overflow-hidden h-[30rem] sm:h-80 lg:h-96">
         <img
@@ -15,7 +15,7 @@ const CategoryCard = ({ image, title, subtitle, tag }) => {
         )}
       </div>
 
-      <div className="px-4 py-3.5 bg-white">
+      <div className="px-4 py-3.5 bg-white border-t border-gray-300">
         <h3 className="text-base sm:text-lg font-semibold text-gray-900 leading-snug">
           {title}
         </h3>
