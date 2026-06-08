@@ -2,7 +2,7 @@ const CategoryCard = ({ image, title, subtitle, tag }) => {
   return (
     <div className="group cursor-pointer overflow-hidden bg-white border border-gray-300 hover:shadow-lg transition-shadow duration-300">
 
-      <div className="relative overflow-hidden h-[30rem] sm:h-80 lg:h-96">
+      <div className="relative overflow-hidden h-52 sm:h-80 lg:h-96">
         <img
           src={image}
           alt={title}
