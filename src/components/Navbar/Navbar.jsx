@@ -5,7 +5,7 @@ import { FiSearch, FiShoppingCart, FiUser, FiMenu, FiX } from "react-icons/fi";
 const navLinks = [
   { label: "Home", to: "/" },
   { label: "Shop", to: "/shop" },
-  { label: "Categories", to: "/categories" },
+  { label: "About US", to: "/AboutUs" },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -29,7 +29,7 @@ const Navbar = ({ solid = false }) => {
      ${isActive ? "text-pink-400" : "text-white/90 hover:text-pink-400"}`;
 
   return (
-    <header className={`w-full relative z-20 ${solid ? "fixed top-0 left-0 shadow-sm" : "bg-transparent"}`}
+    <header className={`w-full z-50 ${solid ? "relative shadow-sm" : "relative z-20 bg-transparent"}`}
             style={solid ? { backgroundColor: "#f7f3ef" } : {}}>
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
         <div className="flex items-center justify-between py-4 sm:py-5">

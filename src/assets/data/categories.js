@@ -1,7 +1,7 @@
-import men from "../../assets/images/categories/17.png"
+import men   from "../../assets/images/categories/17.png"
 import women from "../../assets/images/categories/15.png"
-import kids from "../../assets/images/categories/16.png"
-import saree from   "../../assets/images/categories/44.png"
+import kids  from "../../assets/images/categories/16.png"
+import saree from "../../assets/images/categories/44.png"
 
 export const categories = [
     {
@@ -22,6 +22,6 @@ export const categories = [
     {
         id: 4,
         title: "Saree",
-        image: saree,   
+        image: saree,
     },
-]; 
+];

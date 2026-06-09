@@ -2,13 +2,12 @@ import { useState } from "react";
 import { FiSend } from "react-icons/fi";
 import heroBg from "../../assets/images/banners/hero.png";
 
-// Shared classes — transparent on mobile, styled on desktop
 const label = "block text-[10px] font-bold uppercase tracking-[0.2em] mb-1.5 transition-colors " +
   "text-white/60 lg:text-gray-400 group-focus-within:text-pink-400";
 
 const input = "w-full border-0 border-b-2 outline-none px-0 py-2.5 text-sm transition-colors duration-200 " +
   "bg-transparent border-white/30 text-white placeholder-white/30 " +
-  "lg:bg-transparent lg:border-gray-200 lg:text-gray-800 lg:placeholder-gray-300 " +
+  "lg:border-gray-200 lg:text-gray-800 lg:placeholder-gray-300 " +
   "focus:border-pink-400";
 
 const ContactUs = () => {
@@ -25,8 +24,8 @@ const ContactUs = () => {
 
   return (
     <section
-      className="relative w-full flex items-center justify-center overflow-hidden -mt-16"
-      style={{ backgroundColor: "#f7f3ef", minHeight: "100vh" }}
+      className="relative w-full flex items-center justify-center overflow-hidden py-10"
+      style={{ backgroundColor: "#f7f3ef" }}
     >
       {/* Mobile bg image */}
       <div className="lg:hidden absolute inset-0">
@@ -36,9 +35,9 @@ const ContactUs = () => {
 
       {/* Card */}
       <div className="relative z-10 w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2
-                      lg:shadow-xl lg:overflow-hidden lg:my-12 mx-4 sm:mx-8 lg:mx-0">
+                      lg:shadow-xl lg:overflow-hidden mx-4 sm:mx-8 lg:mx-0">
 
-        {/* Left — desktop image col */}
+        {/* Left — desktop image */}
         <div className="relative hidden lg:block">
           <img src={heroBg} alt="Contact" className="absolute inset-0 w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/30 to-transparent" />
@@ -58,10 +57,9 @@ const ContactUs = () => {
           </div>
         </div>
 
-        {/* Right — form, transparent on mobile */}
+        {/* Right — form */}
         <div className="bg-transparent lg:bg-white px-8 sm:px-10 py-10 flex flex-col justify-center">
 
-          {/* Heading */}
           <div className="mb-8">
             <p className="text-pink-400 text-[10px] uppercase tracking-[0.35em] font-semibold mb-2">
               Drop us a line
@@ -75,8 +73,6 @@ const ContactUs = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
-
-            {/* Name + Email */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="group">
                 <label className={label}>Full Name</label>
@@ -90,14 +86,12 @@ const ContactUs = () => {
               </div>
             </div>
 
-            {/* Subject */}
             <div className="group">
               <label className={label}>Subject</label>
               <input type="text" name="subject" value={form.subject}
                 onChange={handleChange} placeholder="What's this about?" required className={input} />
             </div>
 
-            {/* Message */}
             <div className="group">
               <label className={label}>Your Message</label>
               <textarea name="message" value={form.message}
@@ -105,7 +99,6 @@ const ContactUs = () => {
                 required rows={4} className={`${input} resize-none`} />
             </div>
 
-            {/* Submit */}
             <div className="flex items-center justify-between pt-2 flex-wrap gap-3">
               <p className="text-white/40 lg:text-gray-300 text-[10px] uppercase tracking-wider">
                 We reply within 24 hrs
@@ -124,7 +117,6 @@ const ContactUs = () => {
                 Thank you — we'll be in touch soon.
               </p>
             )}
-
           </form>
         </div>
       </div>

@@ -1,21 +1,7 @@
 import { useState, useMemo } from "react";
 import { FiSearch, FiShoppingBag } from "react-icons/fi";
+import { products } from "../../assets/data/products";
 import { categories } from "../../assets/data/categories";
-
-// Category images for dummy products
-const catImages = categories.map((c) => c.image);
-
-// 12 dummy products using the 4 category images
-const dummyProducts = Array.from({ length: 12 }, (_, i) => ({
-  id: i + 1,
-  name: ["Elegant Silk Saree", "Classic Linen Shirt", "Floral Kurta", "Denim Joggers",
-         "Banarasi Saree", "Oxford Button-Down", "Printed Anarkali", "Cargo Trousers",
-         "Organza Saree", "Polo T-Shirt", "Embroidered Lehenga", "Straight Fit Chinos"][i],
-  price: [1999, 1299, 899, 1099, 2499, 1599, 1799, 1199, 2199, 799, 2999, 999][i],
-  image: catImages[i % catImages.length],
-  category: ["Sarees", "Men", "Women", "Men", "Sarees", "Men", "Women", "Men",
-             "Sarees", "Men", "Women", "Men"][i],
-}));
 
 const BestProducts = () => {
   const [search, setSearch] = useState("");
@@ -24,7 +10,7 @@ const BestProducts = () => {
   const categoryOptions = ["All", ...categories.map((c) => c.title)];
 
   const filtered = useMemo(() => {
-    return dummyProducts.filter((p) => {
+    return products.filter((p) => {
       const matchCat =
         activeCategory === "All" || p.category.toLowerCase().includes(activeCategory.toLowerCase());
       const matchSearch =
@@ -50,7 +36,7 @@ const BestProducts = () => {
           </h2>
           <p className="text-gray-400 text-sm mt-1">
             Showing <span className="text-gray-700 font-semibold">{filtered.length}</span> out of{" "}
-            <span className="text-gray-700 font-semibold">{dummyProducts.length}</span> products
+            <span className="text-gray-700 font-semibold">{products.length}</span> products
           </p>
         </div>
 
@@ -97,7 +83,7 @@ const BestProducts = () => {
           <p className="text-lg">No products found.</p>
         </div>
       ) : (
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-4">
           {filtered.map((product) => (
             <div
               key={product.id}
@@ -114,21 +100,23 @@ const BestProducts = () => {
                 />
               </div>
 
-              {/* Footer strip — name/category left, price+add right */}
-              <div className="flex items-center justify-between px-4 py-3.5 bg-white">
-                <div>
-                  <p className="text-gray-400 text-[10px] uppercase tracking-wider mb-0.5">
+              {/* Footer strip — fixed height, two rows */}
+              <div className="px-3 py-3 bg-white" style={{ minHeight: "88px" }}>
+                {/* Row 1: category + price */}
+                <div className="flex items-center justify-between mb-1">
+                  <p className="text-gray-400 text-[10px] uppercase tracking-wider">
                     {product.category}
                   </p>
-                  <span className="text-gray-900 text-base sm:text-lg font-medium line-clamp-1">
-                    {product.name}
-                  </span>
-                </div>
-                <div className="flex flex-col items-end gap-1.5 shrink-0 ml-3">
-                  <span className="text-pink-600 font-bold text-sm sm:text-base">
+                  <span className="text-pink-600 font-bold text-sm">
                     ₹{product.price.toLocaleString()}
                   </span>
-                  <button className="flex items-center gap-1 bg-pink-600 hover:bg-pink-700
+                </div>
+                {/* Row 2: name + add button */}
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-gray-900 text-sm font-medium line-clamp-1 flex-1">
+                    {product.name}
+                  </span>
+                  <button className="shrink-0 flex items-center gap-1 bg-pink-600 hover:bg-pink-700
                                      text-white text-xs font-semibold px-3 py-1.5 transition-all">
                     <FiShoppingBag size={11} />
                     Add

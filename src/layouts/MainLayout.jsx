@@ -7,9 +7,7 @@ const MainLayout = () => {
   return (
     <div style={{ backgroundColor: "#f7f3ef", minHeight: "100vh" }}>
       <Navbar solid />
-      <div className="pt-16">
-        <Outlet />
-      </div>
+      <Outlet />
       <Footer />
     </div>
   );
