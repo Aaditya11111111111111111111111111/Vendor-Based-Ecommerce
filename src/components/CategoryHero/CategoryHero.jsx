@@ -15,7 +15,7 @@ const CategoryHero = () => {
   return (
     <section
       className="relative w-full flex overflow-hidden -mt-16"
-      style={{ height: "100vh" }}
+      style={{ height: "calc(100vh - 64px)" }}
     >
       {panels.map((p, i) => {
         const isActive = active === p.key;
