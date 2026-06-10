@@ -1,9 +1,2 @@
-import banner from "../images/banners/16.jpg"
+import banner from "../images/banners/15.jpg"
 
-export const banner
-    = [
-        {
-        id: 1,
-        image: banner,
-        }
-    ];

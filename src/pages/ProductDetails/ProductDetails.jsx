@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
-  FiShoppingCart, FiPlus, FiMinus, FiArrowLeft,
+  FiShoppingCart, FiPlus, FiMinus,
   FiTruck, FiMapPin, FiDollarSign, FiShield,
 } from "react-icons/fi";
 import toast from "react-hot-toast";
@@ -30,7 +30,7 @@ const ProductDetails = () => {
         <p className="text-gray-500 text-lg">Product not found.</p>
         <button onClick={() => navigate("/shop")}
                 className="text-sm text-pink-500 hover:underline flex items-center gap-1">
-          <FiArrowLeft size={14} /> Back to Shop
+          ← Back to Shop
         </button>
       </div>
     );
@@ -73,15 +73,6 @@ const ProductDetails = () => {
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#f7f3ef" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-10 sm:py-14">
-
-        {/* Back */}
-        <button
-          onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-sm text-gray-400 hover:text-pink-500
-                     transition-colors mb-8"
-        >
-          <FiArrowLeft size={14} /> Back
-        </button>
 
         {/* ── 3-COLUMN LAYOUT ── */}
         <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr_260px] gap-8 lg:gap-10 items-start">

@@ -45,7 +45,7 @@ const Footer = () => {
               Style<span className="text-pink-500">Hub</span>
             </Link>
             <p className="mt-2 text-white/40 text-sm max-w-xs leading-relaxed">
-              India's premium fashion marketplace — curated collections from verified vendors.
+              Nepal's premium fashion marketplace — curated collections from verified vendors.
             </p>
           </div>
 
@@ -123,9 +123,9 @@ const Footer = () => {
               ))}
             </div>
             <p className="text-white/30 text-xs leading-relaxed">
-              hello@stylehub.in<br />
-              +91 98765 43210<br />
-              Mumbai, India
+             stylehub@gmail.com<br />
+              +977 984200 9649<br />
+              Biratnagar, Nepal
             </p>
           </div>
 
