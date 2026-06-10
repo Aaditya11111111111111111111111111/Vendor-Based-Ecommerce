@@ -1,13 +1,16 @@
 import { useState, useMemo } from "react";
-import { FiSearch, FiShoppingBag } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
+import { FiSearch, FiShoppingCart } from "react-icons/fi";
 import { products } from "../../assets/data/products";
 import { categories } from "../../assets/data/categories";
 import { useCart } from "../../context/CartContext";
+import toast from "react-hot-toast";
 
 const BestProducts = () => {
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
   const { addToCart } = useCart();
+  const navigate = useNavigate();
 
   const categoryOptions = ["All", ...categories.map((c) => c.title)];
 
@@ -92,8 +95,11 @@ const BestProducts = () => {
               className="group cursor-pointer overflow-hidden rounded-t-xl shadow-sm
                          hover:shadow-md transition-shadow duration-300 bg-white"
             >
-              {/* Image — exact same as CategoryCard */}
-              <div className="overflow-hidden h-52 sm:h-72 lg:h-[420px]">
+              {/* Image — clickable → product detail */}
+              <div
+                className="overflow-hidden h-52 sm:h-72 lg:h-[420px] cursor-pointer"
+                onClick={() => navigate(`/product/${product.id}`)}
+              >
                 <img
                   src={product.image}
                   alt={product.name}
@@ -102,29 +108,64 @@ const BestProducts = () => {
                 />
               </div>
 
-              {/* Footer strip — fixed height, two rows */}
-              <div className="px-3 py-3 bg-white" style={{ minHeight: "88px" }}>
-                {/* Row 1: category + price */}
-                <div className="flex items-center justify-between mb-1">
-                  <p className="text-gray-400 text-[10px] uppercase tracking-wider">
+              {/* Footer strip */}
+              <div className="px-3 pt-3 pb-3 bg-white flex items-end justify-between gap-2">
+
+                {/* Left: category → name → price stacked */}
+                <div className="min-w-0 flex-1">
+                  <p className="text-gray-400 text-[10px] uppercase tracking-wider mb-1">
                     {product.category}
+                  </p>
+                  <p
+                    className="text-gray-900 text-sm font-semibold line-clamp-1 mb-1 cursor-pointer hover:text-pink-500 transition-colors"
+                    onClick={() => navigate(`/product/${product.id}`)}
+                  >
+                    {product.name}
                   </p>
                   <span className="text-pink-600 font-bold text-sm">
                     ₹{product.price.toLocaleString()}
                   </span>
                 </div>
-                {/* Row 2: name + add button */}
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-gray-900 text-sm font-medium line-clamp-1 flex-1">
-                    {product.name}
-                  </span>
-                  <button className="shrink-0 flex items-center gap-1 bg-pink-600 hover:bg-pink-700
-                                     text-white text-xs font-semibold px-3 py-1.5 transition-all"
-                          onClick={() => addToCart(product)}>
-                    <FiShoppingBag size={11} />
-                    Add
-                  </button>
-                </div>
+
+                {/* Right: cart icon aligned to bottom */}
+                <button
+                    className="shrink-0 p-2 text-pink-500 hover:text-pink-600 transition-colors duration-200 mb-0.5"
+                    onClick={() => {
+                      addToCart(product);
+                      toast.custom((t) => (
+                        <div
+                          onClick={() => { toast.dismiss(t.id); navigate("/cart"); }}
+                          className={`flex items-center gap-3 bg-white border border-gray-100
+                                      shadow-lg px-4 py-3 transition-all duration-300 cursor-pointer
+                                      hover:border-pink-200 hover:shadow-pink-100
+                                      ${t.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          style={{ minWidth: "220px" }}
+                        >
+                          <div className="w-10 h-10 shrink-0 overflow-hidden bg-gray-50">
+                            <img
+                              src={product.image}
+                              alt={product.name}
+                              className="w-full h-full object-cover object-top"
+                            />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-[11px] text-pink-500 font-bold uppercase tracking-widest mb-0.5">
+                              Added to bag
+                            </p>
+                            <p className="text-gray-800 text-xs font-semibold line-clamp-1">
+                              {product.name}
+                            </p>
+                            <p className="text-[10px] text-gray-400 mt-0.5">Tap to view cart →</p>
+                          </div>
+                          <FiShoppingCart size={16} className="text-pink-400 shrink-0" />
+                        </div>
+                      ));
+                    }}
+                    aria-label="Add to cart"
+                  >
+                    <FiShoppingCart size={18} />
+                </button>
+
               </div>
             </div>
           ))}
