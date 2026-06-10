@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FiSearch, FiShoppingCart, FiUser, FiMenu, FiX } from "react-icons/fi";
+import { useCart } from "../../context/CartContext";
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -11,6 +12,7 @@ const navLinks = [
 
 const Navbar = ({ solid = false }) => {
   const [open, setOpen] = useState(false);
+  const { totalItems } = useCart();
 
   // Returns className for desktop nav links
   const desktopLinkClass = ({ isActive }) =>
@@ -71,15 +73,31 @@ const Navbar = ({ solid = false }) => {
             </form>
 
             {/* Icons */}
-            <div className={`flex gap-4 text-xl ${solid ? "text-gray-700" : "text-white/80"}`}>
+            <div className={`flex gap-4 text-xl items-center ${solid ? "text-gray-700" : "text-white/80"}`}>
               <FiUser className="cursor-pointer hover:text-pink-500 transition-colors" />
-              <FiShoppingCart className="cursor-pointer hover:text-pink-500 transition-colors" />
+              <Link to="/cart" className="relative">
+                <FiShoppingCart className="cursor-pointer hover:text-pink-500 transition-colors" />
+                {totalItems > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-pink-500 text-white text-[10px] font-bold
+                                   w-4 h-4 flex items-center justify-center rounded-full leading-none">
+                    {totalItems > 99 ? "99+" : totalItems}
+                  </span>
+                )}
+              </Link>
             </div>
           </div>
 
           {/* Mobile: cart + hamburger */}
           <div className={`flex md:hidden items-center gap-4 ${solid ? "text-gray-700" : "text-white"}`}>
-            <FiShoppingCart size={20} className="cursor-pointer hover:text-pink-500 transition-colors" />
+            <Link to="/cart" className="relative">
+              <FiShoppingCart size={20} className="cursor-pointer hover:text-pink-500 transition-colors" />
+              {totalItems > 0 && (
+                <span className="absolute -top-2 -right-2 bg-pink-500 text-white text-[10px] font-bold
+                                 w-4 h-4 flex items-center justify-center rounded-full leading-none">
+                  {totalItems > 99 ? "99+" : totalItems}
+                </span>
+              )}
+            </Link>
             <button onClick={() => setOpen((o) => !o)} aria-label="Toggle menu">
               {open ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>

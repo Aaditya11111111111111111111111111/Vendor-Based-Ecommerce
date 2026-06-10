@@ -2,10 +2,12 @@ import { useState, useMemo } from "react";
 import { FiSearch, FiShoppingBag } from "react-icons/fi";
 import { products } from "../../assets/data/products";
 import { categories } from "../../assets/data/categories";
+import { useCart } from "../../context/CartContext";
 
 const BestProducts = () => {
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
+  const { addToCart } = useCart();
 
   const categoryOptions = ["All", ...categories.map((c) => c.title)];
 
@@ -117,7 +119,8 @@ const BestProducts = () => {
                     {product.name}
                   </span>
                   <button className="shrink-0 flex items-center gap-1 bg-pink-600 hover:bg-pink-700
-                                     text-white text-xs font-semibold px-3 py-1.5 transition-all">
+                                     text-white text-xs font-semibold px-3 py-1.5 transition-all"
+                          onClick={() => addToCart(product)}>
                     <FiShoppingBag size={11} />
                     Add
                   </button>
